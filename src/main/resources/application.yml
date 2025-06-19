@@ -1,6 +1,10 @@
 spring:
   application:
     name: bucket-manager-bff
+  servlet:
+    multipart:
+      max-request-size: 2MB
+      max-file-size: 2MB
   security:
     oauth2:
       client:
@@ -17,6 +21,9 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://accounts.google.com
+
+security:
+  enabled: ${SECURITY_ENABLED:true}
 
 server:
   port: ${SERVER_PORT:8080}

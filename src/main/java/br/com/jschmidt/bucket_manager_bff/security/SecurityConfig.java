@@ -1,6 +1,7 @@
 package br.com.jschmidt.bucket_manager_bff.security;
 
 import br.com.jschmidt.bucket_manager_bff.security.jwt.JwtAuthenticationFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,18 +15,27 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final boolean securityEnabled;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter,
+                          @Value("${security.enabled:true}") boolean securityEnabled) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.securityEnabled = securityEnabled;
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        if (!securityEnabled) {
+            http.authorizeHttpRequests(authz -> authz.anyRequest().permitAll())
+                .csrf(AbstractHttpConfigurer::disable);
+            return http.build();
+        }
+
         http
                 .authorizeHttpRequests(authz -> authz
                         // Public endpoints
-                        .requestMatchers("/", "/login", "/error", "/actuator/health").permitAll()
-                        .requestMatchers("/auth/**").permitAll() // Your custom auth endpoints
+                        .requestMatchers("/", "/login", "/session", "/error", "/actuator/health").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
                         // Protected API endpoints
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().authenticated()
