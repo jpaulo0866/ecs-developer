@@ -5,7 +5,6 @@ import br.com.jschmidt.bucket_manager_bff.models.BucketFileModel;
 import br.com.jschmidt.bucket_manager_bff.models.ResourceDownloadModel;
 import br.com.jschmidt.bucket_manager_bff.services.strategies.StorageAccessStrategy;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

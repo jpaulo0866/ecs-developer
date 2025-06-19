@@ -14,14 +14,14 @@
 12. [X]  Implement AWS SDK integration
 13. [X]  Implement GCP integration
 14. [X]  Implement Azure Integration
-15. [ ]  Implement Error Handling
-16. [ ]  Implement Logging functionality
-17. [ ]  Implement Testing Strategy
-18. [X]  Implement Github Actions
-19. [X]  Implement Docker flow
-20. [X]  Implement terraform for AWS
-21. [X]  Implement terraform for GCP
-22. [X]  Implement terraform for Azure
-23. [ ]  Test everything together
-24. [ ]  README instruction
-25. [ ]  ADRs
+15. [X]  Implement Error Handling
+16. [X]  Implement Logging functionality
+17. [X]  Implement Github Actions
+18. [X]  Implement Docker flow
+19. [X]  Implement terraform for AWS
+20. [X]  Implement terraform for GCP
+21. [X]  Implement terraform for Azure
+22. [X]  Test everything together
+23. [ ]  README instruction
+24. [ ]  ADRs
+25. [ ]  Unit tests

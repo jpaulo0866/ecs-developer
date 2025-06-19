@@ -42,7 +42,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authz -> authz
                         // Public endpoints
-                        .requestMatchers("/", "/login", "/session", "/error", "/actuator/health").permitAll()
+                        .requestMatchers("/login", "/session", "/error", "/actuator/health").permitAll()
                         .requestMatchers("/auth/**").permitAll()
                         // Protected API endpoints
                         .requestMatchers("/api/**").authenticated()
