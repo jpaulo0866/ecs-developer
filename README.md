@@ -12,10 +12,10 @@
 10. [x]  Implement presigned URL functionality
 11. [x]  Implement Routing Strategy
 12. [X]  Implement AWS SDK integration
-13. [ ]  Implement GCP integration
-14. [ ]  Implement Azure Integration
+13. [X]  Implement GCP integration
+14. [X]  Implement Azure Integration
 15. [ ]  Implement Error Handling
-16. [x]  Implement Logging functionality
+16. [ ]  Implement Logging functionality
 17. [ ]  Implement Testing Strategy
 18. [X]  Implement Github Actions
 19. [X]  Implement Docker flow

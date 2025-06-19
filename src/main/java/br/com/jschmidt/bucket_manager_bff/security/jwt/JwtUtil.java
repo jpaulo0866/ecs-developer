@@ -3,14 +3,14 @@ package br.com.jschmidt.bucket_manager_bff.security.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
@@ -20,12 +20,12 @@ import java.util.Date;
 public class JwtUtil {
 
     private final int jwtExpirationMs;
-    private final SecretKey key;
+    private final String secretKey;
 
     public JwtUtil(@Value("${jwt.secret}") String jwtSecret,
                    @Value("${jwt.expiration-ms}") int jwtExpirationMs) {
         this.jwtExpirationMs = jwtExpirationMs;
-        this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        this.secretKey = jwtSecret;
     }
 
     public Long getJwtExpirationSeconds() {
@@ -33,9 +33,18 @@ public class JwtUtil {
     }
 
     public String generateJwtToken(Authentication authentication) {
-        OAuth2User userPrincipal = (OAuth2User) authentication.getPrincipal();
-        String email = userPrincipal.getAttribute("email");
-        String name = userPrincipal.getAttribute("name");
+        String email = "", name = "";
+
+        if (authentication instanceof OAuth2User) {
+            OAuth2User userPrincipal = (OAuth2User) authentication.getPrincipal();
+            email = userPrincipal.getAttribute("email");
+            name = userPrincipal.getAttribute("name");
+        }
+
+        if (authentication instanceof Jwt) {
+            email = ((Jwt) authentication).getClaimAsString("email");
+            name = ((Jwt) authentication).getClaimAsString("name");
+        }
 
         Instant now = Instant.now();
         Instant expiry = now.plusMillis(jwtExpirationMs);
@@ -46,7 +55,7 @@ public class JwtUtil {
                 .claim("email", email)
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(expiry))
-                .signWith(key)
+                .signWith(new SecretKeySpec(secretKey.getBytes(), "HmacSHA256"))
                 .compact();
     }
 
@@ -57,7 +66,7 @@ public class JwtUtil {
 
     public Claims parseJwtToken(String token) {
         return Jwts.parser()
-                .verifyWith(key)
+                .verifyWith(new SecretKeySpec(secretKey.getBytes(), "HmacSHA256"))
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();

@@ -28,12 +28,28 @@ public class AuthController {
             return ResponseEntity.ok(Map.of("authenticated", false));
         }
 
-        OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
+        Object principal = authentication.getPrincipal();
+
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("authenticated", true);
-        userInfo.put("name", oauth2User.getAttribute("name"));
-        userInfo.put("email", oauth2User.getAttribute("email"));
-        userInfo.put("picture", oauth2User.getAttribute("picture"));
+
+        switch (principal) {
+            case OAuth2User oauth2User -> {
+                userInfo.put("name", oauth2User.getAttribute("name"));
+                userInfo.put("email", oauth2User.getAttribute("email"));
+                userInfo.put("picture", oauth2User.getAttribute("picture"));
+            }
+            case org.springframework.security.oauth2.jwt.Jwt jwt -> {
+                userInfo.put("name", jwt.getClaimAsString("name"));
+                userInfo.put("email", jwt.getClaimAsString("email"));
+                userInfo.put("claims", jwt.getClaims());
+            }
+            case String str -> userInfo.put("principal", str);
+            case null, default -> {
+                assert principal != null;
+                userInfo.put("principal", principal.toString());
+            }
+        }
 
         return ResponseEntity.ok(userInfo);
     }

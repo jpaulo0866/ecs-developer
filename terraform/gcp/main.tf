@@ -18,10 +18,17 @@ resource "google_service_account" "app_sa" {
   display_name = "BFF Log Service Account"
 }
 
-resource "google_storage_bucket_iam_member" "bucket_access" {
+resource "google_storage_bucket_iam_member" "bucket_reader" {
   count  = var.create_resources ? 1 : 0
   bucket = google_storage_bucket.log_bucket[0].name
-  role   = "roles/storage.objectAdmin" # Only for testing purposes
+  role   = "roles/storage.legacyBucketReader"
+  member = "serviceAccount:${google_service_account.app_sa[0].email}"
+}
+
+resource "google_storage_bucket_iam_member" "object_admin" {
+  count  = var.create_resources ? 1 : 0
+  bucket = google_storage_bucket.log_bucket[0].name
+  role   = "roles/storage.objectAdmin"
   member = "serviceAccount:${google_service_account.app_sa[0].email}"
 }
 

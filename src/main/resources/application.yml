@@ -20,7 +20,7 @@ spring:
             issuer-uri: https://accounts.google.com
       resourceserver:
         jwt:
-          issuer-uri: https://accounts.google.com
+          secret-key: ${JWT_SECRET:changeit}
 
 security:
   enabled: ${SECURITY_ENABLED:true}

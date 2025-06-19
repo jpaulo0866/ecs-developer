@@ -41,8 +41,7 @@ public class StorageController {
                 .body(resourceDownloadModel.getResource());
     }
 
-    @PutMapping(value = "/providers/{provider}/buckets/{bucketName}/upload",
-            consumes = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @PutMapping(value = "/providers/{provider}/buckets/{bucketName}/upload")
     public void uploadFile(@PathVariable CloudProviderEnum provider,
                            @PathVariable String bucketName,
                            @RequestParam("file") MultipartFile file) {
