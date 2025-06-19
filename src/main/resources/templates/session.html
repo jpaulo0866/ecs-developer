@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Bucket Manager</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Login Successful!</h2>
+<p>Your session ID is:</p>
+<pre style="font-size: 1.2em; color: #333;">[[${sessionId}]]</pre>
+<p>Copy this value and use it as a <code>JSESSIONID</code> cookie in Postman to obtain your JWT token:</p>
+<pre>
+POST http://localhost:8080/auth/token
+Cookie: JSESSIONID=[[${sessionId}]]
+    </pre>
+</body>
+</html>

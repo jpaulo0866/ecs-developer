@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: bucket-manager-bff
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/google"
+            scope: openid,profile,email
+        provider:
+          google:
+            issuer-uri: https://accounts.google.com
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+
+server:
+  port: ${SERVER_PORT:8080}
+
+cloud:
+  aws:
+    enabled: ${AWS_ENABLED:false}
+    region: ${AWS_REGION}
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+  gcp:
+    enabled: ${GCP_ENABLED:false}
+    credentials:
+      encoded-key: ${GCP_CREDENTIALS_BASE64} # Base64 encoded service account JSON
+    project-id: ${GCP_PROJECT_ID}
+  azure:
+    enabled: ${AZURE_ENABLED:false}
+    connection-string: ${AZURE_STORAGE_CONNECTION_STRING}
+
+jwt:
+  secret: ${JWT_SECRET:'changeit'}
+  expiration-ms: 86400000 # 24 hours
+

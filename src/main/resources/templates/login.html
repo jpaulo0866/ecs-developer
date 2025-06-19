@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login - Bucket Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="text-align: center; margin-top: 100px;">
+    <h1>Bucket Manager Bff</h1>
+    <p>Please log in to access the service</p>
+
+    <a href="/oauth2/authorization/google"
+       style="display: inline-block; padding: 10px 20px; background-color: #4285f4; color: white; text-decoration: none; border-radius: 5px;">
+        Sign in with Google
+    </a>
+
+    <div th:if="${param.error}" style="color: red; margin-top: 20px;">
+        Login failed. Please try again.
+    </div>
+</div>
+</body>
+</html>
