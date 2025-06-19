@@ -3,7 +3,6 @@ package br.com.jschmidt.bucket_manager_bff.services.strategies;
 import br.com.jschmidt.bucket_manager_bff.enums.CloudProviderEnum;
 import br.com.jschmidt.bucket_manager_bff.models.BucketFileModel;
 import br.com.jschmidt.bucket_manager_bff.models.ResourceDownloadModel;
-import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

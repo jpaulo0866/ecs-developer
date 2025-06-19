@@ -1,0 +1,928 @@
+{
+	"info": {
+		"_postman_id": "41650903-5aa4-44f0-8199-4e504503ac1a",
+		"name": "BUCKET MANAGER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6780435"
+	},
+	"item": [
+		{
+			"name": "AWS",
+			"item": [
+				{
+					"name": "UPLOAD FILE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jschmidt/Documents/build.log"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/upload",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"upload"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST FILES IN BUCKET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOWNLOAD FILE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/download",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRESIGN URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/presigned-url",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"presigned-url"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD FILE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jschmidt/Documents/build.log"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/upload",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"upload"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST FILES IN BUCKET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOWNLOAD FILE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/download",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRESIGN URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/presigned-url",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"presigned-url"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AWS"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-aws"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GCP",
+			"item": [
+				{
+					"name": "UPLOAD FILE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jschmidt/Documents/build.log"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/upload",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"upload"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "GCP"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-gcp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST FILES IN BUCKET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "GCP"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-gcp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOWNLOAD FILE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/download",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "GCP"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-gcp"
+								},
+								{
+									"key": "filename",
+									"value": "issue-writer.txt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRESIGN URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/presigned-url",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"presigned-url"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "GCP"
+								},
+								{
+									"key": "bucketName",
+									"value": "jschmidt-bff-log-storage-bucket-gcp"
+								},
+								{
+									"key": "filename",
+									"value": "issue-writer.txt"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AZURE",
+			"item": [
+				{
+					"name": "UPLOAD FILE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jschmidt/Documents/build.log"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/upload",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"upload"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST FILES IN BUCKET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOWNLOAD FILE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/download",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRESIGN URL",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/presigned-url",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"presigned-url"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD FILE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jschmidt/Documents/build.log"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/upload",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"upload"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST FILES IN BUCKET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOWNLOAD FILE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/download",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRESIGN URL",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/providers/:provider/buckets/:bucketName/files/:filename/presigned-url",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"providers",
+								":provider",
+								"buckets",
+								":bucketName",
+								"files",
+								":filename",
+								"presigned-url"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "AZURE"
+								},
+								{
+									"key": "bucketName",
+									"value": "logs"
+								},
+								{
+									"key": "filename",
+									"value": "build.log"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OBTAIN TOKEN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const json = pm.response.json()",
+							"pm.collectionVariables.set(\"auth-token\", json.token)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{session-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/auth/token",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER INFO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{session-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/auth/user",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"auth",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{auth-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "session-id",
+			"value": "ECA0B5F70A8C77610A5A6DD24AA22118",
+			"type": "string"
+		},
+		{
+			"key": "auth-token",
+			"value": ""
+		}
+	]
+}

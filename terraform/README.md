@@ -175,7 +175,7 @@ The outputs will be used to populate the `application.yml` or environment variab
 
 ## 5. Configuring the Spring Boot Application
 
-Take the credentials from the Terraform output and use them to configure the `src/main/resources/application.yml` file. It is **highly recommended** to use environment variables for production instead of hardcoding values.
+Take the credentials from the Terraform output and use them to configure the `src/main/resources/application.yml` file. 
 
 ## 6. Cleaning Up
 
